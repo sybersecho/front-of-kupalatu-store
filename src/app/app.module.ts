@@ -10,6 +10,7 @@ import { ProductListComponent } from './content/products/product-list/product-li
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { SupplierListComponent } from './content/suppliers/supplier-list/supplier-list.component';
 import { DashboardComponent } from './content/dashboard/dashboard/dashboard.component';
+import { UsersComponent } from './content/users/users.component';
 
 const appRoutes: Routes=[
   {path: '', component: DashboardComponent},
@@ -25,7 +26,8 @@ const appRoutes: Routes=[
     ProductListComponent,
     SidebarComponent,
     SupplierListComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
