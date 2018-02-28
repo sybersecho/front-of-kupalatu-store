@@ -10,12 +10,17 @@ import { ProductListComponent } from './content/products/product-list/product-li
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { SupplierListComponent } from './content/suppliers/supplier-list/supplier-list.component';
 import { DashboardComponent } from './content/dashboard/dashboard/dashboard.component';
-import { UsersComponent } from './content/users/users.component';
+import { UserListComponent } from './content/users/user-list/user-list.component';
+import { UserComponent } from './content/users/user-list/user/user.component';
+import { SearchUsersComponent } from './content/users/user-list/search-users/search-users.component';
+import { SearchResultComponent } from './content/users/user-list/search-result/search-result.component';
 
 const appRoutes: Routes=[
   {path: '', component: DashboardComponent},
   {path: 'products', component: ProductListComponent},
-  {path: 'suppliers', component: SupplierListComponent}
+  {path: 'suppliers', component: SupplierListComponent},
+  {path: 'users', component: UserListComponent}
+
 ];
 
 @NgModule({
@@ -27,7 +32,10 @@ const appRoutes: Routes=[
     SidebarComponent,
     SupplierListComponent,
     DashboardComponent,
-    UsersComponent
+    UserListComponent,
+    UserComponent,
+    SearchUsersComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
