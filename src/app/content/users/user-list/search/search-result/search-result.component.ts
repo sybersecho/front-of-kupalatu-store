@@ -28,6 +28,7 @@ export class SearchResultComponent implements OnInit {
   }
 
   onEdit(user){
+  	// this.usersService.editUser(user);
   	this.router.navigate(['/users', user.id]);
   }
 

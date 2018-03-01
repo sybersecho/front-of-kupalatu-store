@@ -5,7 +5,8 @@ import { User } from '../user.model';
 @Injectable()
 export class UsersService {
   private users: User[];
-  searchUserEvent = new EventEmitter<User[]>();  
+  searchUserEvent = new EventEmitter<User[]>();
+  userEditEvent = new EventEmitter<User>();
 
   constructor() { 
   	this.users = [
@@ -16,6 +17,10 @@ export class UsersService {
 
   public searchUser(keyword: string){
   	this.searchUserEvent.emit(this.users);
+  }
+
+  public editUser(user: User){
+    this.userEditEvent.emit(user);
   }
 
 }
