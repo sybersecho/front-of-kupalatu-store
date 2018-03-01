@@ -14,7 +14,15 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UsersService) { }
 
   ngOnInit() {
-  	this.users = this.userService.users;
+  	// this.users = this.userService.users;
+  }
+
+  onAddNewUser(){
+  	console.log('add new user');
+  }
+
+  onClear(){
+  	console.log('clear result and input search');
   }
 
 }

@@ -2,9 +2,9 @@
 	<!-- <div class="col-md-12"> -->
 		<div class="card-body">
 			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Search" />
+				<input type="text" class="form-control" placeholder="Search" name="searchInput" #searchInput/>
 				<span class="input-group-btn">
-					<button type="submit" class="btn btn-primary">Search</button>
+					<button type="submit" class="btn btn-primary" (click)="onSearch()">Search</button>
 				</span>
 			</div>
 		</div>

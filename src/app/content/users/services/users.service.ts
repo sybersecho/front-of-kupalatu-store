@@ -1,15 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
+
 import { User } from '../user.model';
 
 @Injectable()
 export class UsersService {
-  users: User[];
+  private users: User[];
+  searchUserEvent = new EventEmitter<User[]>();  
 
   constructor() { 
   	this.users = [
-  		new User('admin', 'Admin', 'Admin'),
-  		new User('test', 'Test', 'Test')
+  		new User(1,'admin', 'Admin', 'Admin'),
+  		new User(2,'test', 'Test', 'Test')
   	];
+  }
+
+  public searchUser(keyword: string){
+  	this.searchUserEvent.emit(this.users);
   }
 
 }

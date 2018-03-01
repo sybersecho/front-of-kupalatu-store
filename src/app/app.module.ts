@@ -12,14 +12,19 @@ import { SupplierListComponent } from './content/suppliers/supplier-list/supplie
 import { DashboardComponent } from './content/dashboard/dashboard/dashboard.component';
 import { UserListComponent } from './content/users/user-list/user-list.component';
 import { UserComponent } from './content/users/user-list/user/user.component';
-import { SearchUsersComponent } from './content/users/user-list/search-users/search-users.component';
-import { SearchResultComponent } from './content/users/user-list/search-result/search-result.component';
+import { SearchUsersComponent } from './content/users/user-list/search/search-users/search-users.component';
+import { SearchResultComponent } from './content/users/user-list/search/search-result/search-result.component';
+import { SearchComponent } from './content/users/user-list/search/search.component';
 
 const appRoutes: Routes=[
   {path: '', component: DashboardComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'suppliers', component: SupplierListComponent},
-  {path: 'users', component: UserListComponent}
+  {path: 'users', component: UserListComponent, children: [    
+    {path: '', component: SearchComponent},
+    {path: ':id', component: UserComponent}
+  ]},
+
 
 ];
 
@@ -35,7 +40,8 @@ const appRoutes: Routes=[
     UserListComponent,
     UserComponent,
     SearchUsersComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
