@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+// import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
@@ -15,18 +15,9 @@ import { UserComponent } from './content/users/user-list/user/user.component';
 import { SearchUsersComponent } from './content/users/user-list/search/search-users/search-users.component';
 import { SearchResultComponent } from './content/users/user-list/search/search-result/search-result.component';
 import { SearchComponent } from './content/users/user-list/search/search.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-const appRoutes: Routes=[
-  {path: '', component: DashboardComponent},
-  {path: 'products', component: ProductListComponent},
-  {path: 'suppliers', component: SupplierListComponent},
-  {path: 'users', component: UserListComponent, children: [    
-    {path: '', component: SearchComponent},
-    {path: ':id', component: UserComponent}
-  ]},
-
-
-];
 
 @NgModule({
   declarations: [
@@ -41,12 +32,13 @@ const appRoutes: Routes=[
     UserComponent,
     SearchUsersComponent,
     SearchResultComponent,
-    SearchComponent
+    SearchComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

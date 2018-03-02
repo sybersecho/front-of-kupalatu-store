@@ -20,7 +20,14 @@ export class UsersService {
   }
 
   public editUser(user: User){
-    this.userEditEvent.emit(user);
+    this.userEditEvent.emit(this.users[0]);
+  }
+
+  getUserById(index: number){
+    if(index < this.users.length){
+      return this.users[index];
+    }
+    return new User(0,'','','');
   }
 
 }

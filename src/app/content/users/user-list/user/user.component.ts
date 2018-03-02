@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { UsersService } from '../../services/users.service';
 import { User } from '../../user.model';
 
@@ -9,17 +11,15 @@ import { User } from '../../user.model';
 })
 export class UserComponent implements OnInit {
   user: User;
-  constructor(private userService: UsersService) { 
-  	this.user = new User(0, '', '', '')
+
+  constructor(private userService: UsersService, 
+  	private route: ActivatedRoute) { 
+  	// this.user = new User(0, '', '', '')
   }
 
   ngOnInit() {
-  	// this.userService.userEditEvent
-  	// 	.subscribe(
-  	// 		(selectedUser:  User) => {
-  	// 			this.user = selectedUser;
-  	// 		}
-  	// 	);
+  	const id = +this.route.snapshot.params['id']
+  	this.user = this.userService.getUserById(id-1);
   }
 
 }
