@@ -10,15 +10,15 @@ import { DashboardComponent } from '../content/dashboard/dashboard/dashboard.com
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { AuthGuard } from '../services/auth-guard.service';
 
-const appRoutes: Routes=[
+const appRoutes: Routes = [
   {path: '', component: DashboardComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'suppliers', component: SupplierListComponent},
-  {path: 'users', 
+  {path: 'users',
     // canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],    
-    component: UserListComponent, 
-    children: [    
+    canActivateChild: [AuthGuard],
+    component: UserListComponent,
+    children: [
       {path: '', component: SearchComponent},
       {path: ':id', component: UserComponent}
     ]
