@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
@@ -17,6 +16,9 @@ import { SearchResultComponent } from './content/users/user-list/search/search-r
 import { SearchComponent } from './content/users/user-list/search/search.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -40,7 +42,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
