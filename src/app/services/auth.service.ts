@@ -2,26 +2,26 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthService {
-  private loggedId: boolean = false;
+  private loggedId = false;
 
   constructor() { }
 
   public isAuthenticated() {
-  	const promise = new Promise(
+	const promise = new Promise(
   			(resolve, reject) => {
   				setTimeout(() => {
-  					resolve(this.loggedId);
-  				}, 1);
+  					resolve(true);
+  				}, 800);
   			}
   		);
   	return promise;
   }
 
-  public login() : void {
-  	this.loggedId = true
+  public login(): void {
+  	this.loggedId = true;
   }
 
-  public logout() : void {
+  public logout(): void {
   	this.loggedId = false;
   }
 }

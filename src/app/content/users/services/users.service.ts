@@ -1,12 +1,13 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { User } from '../user.model';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class UsersService {
   private users: User[];
-  searchUserEvent = new EventEmitter<User[]>();
-  userEditEvent = new EventEmitter<User>();
+  searchUserEvent = new Subject<User[]>();
+  userEditEvent = new Subject<User>();
 
   constructor() {
     this.users = [
@@ -16,11 +17,11 @@ export class UsersService {
   }
 
   public searchUser(keyword: string) {
-    this.searchUserEvent.emit(this.users);
+    this.searchUserEvent.next(this.users);
   }
 
   public editUser(user: User) {
-    this.userEditEvent.emit(this.users[0]);
+    this.userEditEvent.next(user);
   }
 
   getUserById(index: number) {

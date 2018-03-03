@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../../services/users.service';
 
 @Component({
@@ -7,15 +7,16 @@ import { UsersService } from '../../../services/users.service';
   styleUrls: ['./search-users.component.css']
 })
 export class SearchUsersComponent implements OnInit {
-  @ViewChild('searchInput') searchInput: ElementRef;
+  // @ViewChild('searchInput') searchInput: ElementRef;
+  searchInput = 'test';
 
   constructor(private usersService: UsersService) { }
 
   ngOnInit() {
   }
 
-  onSearch(){
-  	this.usersService.searchUser(this.searchInput.nativeElement.value);
+  onSearch() {
+    this.usersService.searchUser(this.searchInput);
   }
 
 }
