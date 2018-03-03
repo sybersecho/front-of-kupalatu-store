@@ -20,7 +20,8 @@ const appRoutes: Routes = [
     component: UserListComponent,
     children: [
       {path: '', component: SearchComponent},
-      {path: ':id', component: UserComponent}
+      {path: ':id', component: UserComponent},
+      {path: 'new', component: UserComponent}
     ]
   },
   {path: 'not-found', component: PageNotFoundComponent},
