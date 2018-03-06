@@ -25,16 +25,18 @@ export class SearchResultComponent implements OnInit, OnDestroy {
     );
   }
 
-  onDelete(user) {
-    console.log('on delete');
+  onDelete(id: number) {
+    // console.log('on delete');
+    this.usersService.delete(id);
   }
 
-  onEdit(user) {
-    this.usersService.editUser(user);
-    this.router.navigate(['/users', user.id]);
+  onEdit(index: number) {
+    this.usersService.editUser(index);
+    // console.log(index);
+    this.router.navigate(['/users', index]);
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
    }
 }

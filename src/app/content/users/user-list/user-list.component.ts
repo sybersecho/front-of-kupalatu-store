@@ -11,23 +11,23 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class UserListComponent implements OnInit, OnDestroy {
   users: User[];
-  @Output('selectedUser') selectedUser: User;
+  // @Output('selectedUser') selectedUser: User;
   private subscription: Subscription;
 
   constructor(private userService: UsersService) { }
 
   ngOnInit() {
     // this.users = this.userService.users;
-    this.subscription = this.userService.userEditEvent.subscribe(
-      (selectedUser: User) => {
-        if (!selectedUser) {
-          console.log('user is null');
-        } else {
-          console.log('user is not null');
-        }
-        this.selectedUser = selectedUser;
-      }
-    );
+    // this.subscription = this.userService.userEditEvent.subscribe(
+    //   (selectedUser: User) => {
+    //     if (!selectedUser) {
+    //       console.log('user is null');
+    //     } else {
+    //       console.log('user is not null');
+    //     }
+    //     this.selectedUser = selectedUser;
+    //   }
+    // );
   }
 
   onAddNewUser() {
@@ -39,6 +39,6 @@ export class UserListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 }

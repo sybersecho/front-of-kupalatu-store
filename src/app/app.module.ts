@@ -19,6 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
+import { UsersService } from './content/users/services/users.service';
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import { AuthGuard } from './services/auth-guard.service';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

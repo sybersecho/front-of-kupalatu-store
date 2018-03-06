@@ -10,7 +10,7 @@ export class AppComponent {
 
   menuClicked = 'products';
 
-  onNavigate(menu: string){
-  	this.menuClicked = menu;
+  onNavigate(menu: string) {
+    this.menuClicked = menu;
   }
 }

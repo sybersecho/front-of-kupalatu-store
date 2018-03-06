@@ -7,8 +7,7 @@ import { UsersService } from '../../../services/users.service';
   styleUrls: ['./search-users.component.css']
 })
 export class SearchUsersComponent implements OnInit {
-  // @ViewChild('searchInput') searchInput: ElementRef;
-  searchInput = 'test';
+  searchInput;
 
   constructor(private usersService: UsersService) { }
 
