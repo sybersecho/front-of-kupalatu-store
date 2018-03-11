@@ -20,6 +20,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { UsersService } from './content/users/services/users.service';
+import { SearchInlineComponent } from './content/products/product-list/search-inline/search-inline.component';
+import { ProductFilterComponent } from './content/products/product-list/search-inline/product-filter/product-filter.component';
+import { ProductResultComponent } from './content/products/product-list/search-inline/product-result/product-result.component';
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import { UsersService } from './content/users/services/users.service';
     SearchUsersComponent,
     SearchResultComponent,
     SearchComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SearchInlineComponent,
+    ProductFilterComponent,
+    ProductResultComponent
   ],
   imports: [
     BrowserModule,

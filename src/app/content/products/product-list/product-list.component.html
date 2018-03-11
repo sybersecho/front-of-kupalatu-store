@@ -1,46 +1,20 @@
-
-
-
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-	<h1 class="h2">Manage Product</h1>
+  <h1 class="h2">Manage Product</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+      <button class="btn btn-sm btn-outline-primary">
+        Add Product
+      </button>
+    </div>
 </div>
-<app-product></app-product>
-<div class="table-responsive">
-	<table class="table table-hover table-sm">
-		<thead>
-			<tr>
-				<th>#</th>
-			  	<th>Barcode</th>
-			  	<th>Name</th>
-			  	<th>Quantity</th>
-			  	<th>Action</th>
-  			</tr>
-		</thead>
-		 <tbody>
-		 	<tr *ngFor="let product of products" (click)="selectProduct(product)">
-		 		<td>1</td>
-		 		<td>{{ product.barcode }}</td>
-		 		<td>{{ product.name }}</td>
-		 		<td>0</td>
-		 		<td></td>
-		 	</tr>
-		 </tbody>
-	</table>
-</div>
+<!-- <app-product></app-product> -->
+<!-- filter -->
+<router-outlet></router-outlet>
+
+<!-- result -->
 <!-- <div class="row">
-	<div class="col-xs-12">
-		<button class="btn btn-success">New Product</button>
-	</div>
-</div>
-<div class="row">
-	<div class="col-xs-12">
-		<a href="#" class="list-group-item clearfix" *ngFor="let product of products">
-			<div class="pull-left">
-				<h4 class="list-group-heading">{{ product.name }}</h4>
-				<p class="list-group-item-text">{{ product.barcode }}</p>
-				<p class="list-group-item-text">{{ product.description }}</p>
-			</div>
-		</a>
-	</div>
-</div>
-<app-product></app-product> -->
+  <div class="col-md-12">
+    <div class="card border-light">
+
+    </div>
+  </div>
+</div> -->

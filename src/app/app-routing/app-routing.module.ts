@@ -8,11 +8,18 @@ import { ProductListComponent } from '../content/products/product-list/product-l
 import { SupplierListComponent } from '../content/suppliers/supplier-list/supplier-list.component';
 import { DashboardComponent } from '../content/dashboard/dashboard/dashboard.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { ProductComponent } from '../content/products/product-list/product/product.component';
+
 import { AuthGuard } from '../services/auth-guard.service';
+import { SearchInlineComponent } from '../content/products/product-list/search-inline/search-inline.component';
 
 const appRoutes: Routes = [
   {path: '', component: DashboardComponent},
-  {path: 'products', component: ProductListComponent},
+  {path: 'products', component: ProductListComponent,
+    children: [
+      {path: '', component: SearchInlineComponent},
+      {path: ':id', component: ProductComponent}
+    ]},
   {path: 'suppliers', component: SupplierListComponent},
   {path: 'users',
     // canActivate: [AuthGuard],

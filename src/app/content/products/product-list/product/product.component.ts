@@ -16,16 +16,16 @@ export class ProductComponent implements OnInit {
   // @Output() saveEvent =
   // saveProductEvent = new EventEmitter<Product>();
 
-  constructor(private productService: ProductService) { }
+  constructor() { }
 
   ngOnInit() {
     this.clear();
-    this.productService.productSelected
-      .subscribe(
-        (product: Product) => {
-          this.product = product;
-        }
-      );
+    // this.productService.productSelected
+    //   .subscribe(
+    //     (product: Product) => {
+    //       this.product = product;
+    //     }
+    //   );
   }
 
   onClear() {
@@ -38,7 +38,7 @@ export class ProductComponent implements OnInit {
       this.getValueOfElementRef(this.descriptionInput)
     );
 
-    this.productService.pushProduct(newProduct);
+    // this.productService.pushProduct(newProduct);
       this.clear();
     }
 
