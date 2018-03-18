@@ -1,6 +1,12 @@
-import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
 import { Product } from '../product.model';
 import { ProductService } from '../services/product.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -11,26 +17,33 @@ import { ProductService } from '../services/product.service';
 export class ProductListComponent implements OnInit, OnDestroy {
   products: Product[];
   productSelected: Product;
+  @ViewChild('btnAddProduct') btnAddProduct;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
 
   }
 
   ngOnInit() {
     this.products = this.productService.getProducts();
-    this.productService.addProduct
-      .subscribe(
-        (products: Product[]) => {
-          this.products = products;
-        }
-      );
   }
 
   selectProduct(product: Product) {
     this.productService.productSelected.emit(product);
   }
 
+  onAddProduct() {
+    // TODO find best way to hide the button
+    // this.btnAddProduct.nativeElement.hidden = true;
+    this.router.navigate(['new'], {relativeTo: this.activatedRoute});
+  }
+
+  saveProductEvent() {
+    console.log('save product event');
+  }
+
   ngOnDestroy() {
-    // console.log("ProductListComponent destroyed!");
+    console.log('ProductListComponent destroyed!');
   }
 }

@@ -10,13 +10,11 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductComponent implements OnInit {
   product: Product;
-  @ViewChild('barcodeInput') barcodeInput: ElementRef;
-  @ViewChild('nameInput') nameInput: ElementRef;
-  @ViewChild('descriptionInput') descriptionInput: ElementRef;
-  // @Output() saveEvent =
-  // saveProductEvent = new EventEmitter<Product>();
+  @ViewChild('txtBarcode') txtBarcode: ElementRef;
+  @ViewChild('txtName') txtName: ElementRef;
+  @ViewChild('txaDescription') txaDescription: ElementRef;
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
     this.clear();
@@ -32,13 +30,16 @@ export class ProductComponent implements OnInit {
     this.clear();
   }
 
-  onSave() {
-    const newProduct: Product = new Product(this.getValueOfElementRef(this.barcodeInput),
-      this.getValueOfElementRef(this.nameInput),
-      this.getValueOfElementRef(this.descriptionInput)
-    );
+  onSubmit() {
+    this.onSave();
+  }
 
-    // this.productService.pushProduct(newProduct);
+  onSave() {
+    const newProduct: Product = new Product(this.getValueOfElementRef(this.txtBarcode),
+      this.getValueOfElementRef(this.txtName),
+      this.getValueOfElementRef(this.txaDescription)
+    );
+    this.productService.pushProduct(newProduct);
       this.clear();
     }
 
