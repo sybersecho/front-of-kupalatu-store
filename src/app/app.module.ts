@@ -16,7 +16,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { DashboardComponent } from './content/dashboard/dashboard/dashboard.component';
-import { SupplierListComponent } from './content/suppliers/supplier-list/supplier-list.component';
 import { UsersService } from './content/users/services/users.service';
 import { SearchResultComponent } from './content/users/user-list/search/search-result/search-result.component';
 import { SearchUsersComponent } from './content/users/user-list/search/search-users/search-users.component';
@@ -26,6 +25,7 @@ import { UserComponent } from './content/users/user-list/user/user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
+import { SupplierListComponent } from './admin/suppliers/components/supplier-list/supplier-list.component';
 
 
 @NgModule({
