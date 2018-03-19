@@ -1,13 +1,15 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable, EventEmitter, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class ProductService {
   private products: Product[];
-  productSelected = new EventEmitter<Product>();
-  // addProduct = new EventEmitter<Product[]>();
-  addProductEvent = new Subject<Product[]>();
+  productsChanged = new Subject<Product[]>();
+
+  // productSelected = new EventEmitter<Product>();
+  // // addProduct = new EventEmitter<Product[]>();
+  // addProductEvent = new Subject<Product[]>();
 
   constructor() {
     this.products = [
@@ -20,9 +22,24 @@ export class ProductService {
     return this.products.slice();
   }
 
+  public getProduct(index: number) {
+    return this.products[index];
+  }
+
   public pushProduct(product: Product) {
     this.products.push(product);
-    this.addProductEvent.next(this.products);
+    this.productsChanged.next(this.products.slice());
+  }
+
+  public updateProduct(i: number, prodcut: Product) {
+    this.products[i] = prodcut;
+    this.productsChanged.next(this.products.slice());
+  }
+
+  public deleteProduct(i: number) {
+    this.products.splice(i, 1);
+    this.productsChanged.next(this.products.slice());
+
   }
 
 }

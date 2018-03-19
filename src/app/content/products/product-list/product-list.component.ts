@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   selectProduct(product: Product) {
-    this.productService.productSelected.emit(product);
+    // this.productService.productSelected.emit(product);
   }
 
   onAddProduct() {

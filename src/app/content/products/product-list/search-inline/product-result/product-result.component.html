@@ -21,7 +21,14 @@
                 <td>{{ product.name }}</td>
                 <td>0</td>
                 <td>0</td>
-                <td></td>
+                <td>
+                  <button class="btn btn-secondary" (click)="onEdit(i)" >
+                    <i class="fa fa-edit"></i>
+                  </button>
+                  <button class="btn btn-danger" (click)="onDelete(i)" >
+                      <i class="fa fa-trash"></i>
+                    </button>
+                </td>
               </tr>
             </tbody>
           </table>
