@@ -6,9 +6,9 @@ import { ProductComponent } from '../admin/products/components/product-list/prod
 import { SearchInlineComponent } from '../admin/products/components/product-list/search-inline/search-inline.component';
 import { DashboardComponent } from '../content/dashboard/dashboard/dashboard.component';
 import { SupplierListComponent } from '../admin/suppliers/components/supplier-list/supplier-list.component';
-import { SearchComponent } from '../content/users/user-list/search/search.component';
-import { UserListComponent } from '../content/users/user-list/user-list.component';
-import { UserComponent } from '../content/users/user-list/user/user.component';
+import { SearchComponent } from '../admin/users/components/user-list/search-inline/search.component';
+import { UserListComponent } from '../admin/users/components/user-list/user-list.component';
+import { UserComponent } from '../admin/users/components/user-list/user/user.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { AuthGuard } from '../services/auth-guard.service';
 
