@@ -9,6 +9,7 @@ import { UserListComponent } from '../admin/users/components/user-list/user-list
 import { DashboardComponent } from '../content/dashboard/dashboard/dashboard.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { UserFormComponent } from '../admin/users/components/user-list/user-form/user-form.component';
+import { SearchUserInlineComponent } from '../admin/users/components/user-list/search-user-inline/search-user-inline.component';
 
 const appRoutes: Routes = [
   {path: '', component: DashboardComponent},
@@ -22,12 +23,12 @@ const appRoutes: Routes = [
   {path: 'users',
   //   // canActivate: [AuthGuard],
   //   canActivateChild: [AuthGuard],
-    component: UserFormComponent, // UserListComponent,
-  //   children: [
-  //     {path: '', component: SearchComponent},
-  //     {path: ':id', component: UserComponent},
-  //     {path: 'new', component: UserComponent}
-  //   ]
+    component: UserListComponent,
+    children: [
+      {path: '', component: SearchUserInlineComponent},
+      {path: 'new', component: UserFormComponent},
+      {path: ':id', component: UserFormComponent}
+    ]
   },
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}

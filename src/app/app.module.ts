@@ -11,19 +11,27 @@ import {
   ProductResultComponent,
 } from './admin/products/components/product-list/search-inline/product-result/product-result.component';
 import { SearchInlineComponent } from './admin/products/components/product-list/search-inline/search-inline.component';
+import { SupplierListComponent } from './admin/suppliers/components/supplier-list/supplier-list.component';
+import {
+  SearchUserFormComponent,
+} from './admin/users/components/user-list/search-user-inline/search-user-form/search-user-form.component';
+import {
+  SearchUserInlineComponent,
+} from './admin/users/components/user-list/search-user-inline/search-user-inline.component';
+import {
+  SearchUserResultComponent,
+} from './admin/users/components/user-list/search-user-inline/search-user-result/search-user-result.component';
+import { UserFormComponent } from './admin/users/components/user-list/user-form/user-form.component';
+import { UserListComponent } from './admin/users/components/user-list/user-list.component';
+import { UsersService } from './admin/users/services/users.service';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { DashboardComponent } from './content/dashboard/dashboard/dashboard.component';
-import { UsersService } from './admin/users/services/users.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
-import { SupplierListComponent } from './admin/suppliers/components/supplier-list/supplier-list.component';
-import { UserListComponent } from './admin/users/components/user-list/user-list.component';
-import { UserFormComponent } from './admin/users/components/user-list/user-form/user-form.component';
-import { SearchUserInlineComponent } from './admin/users/components/user-list/search-user-inline/search-user-inline.component';
 
 
 @NgModule({
@@ -41,7 +49,9 @@ import { SearchUserInlineComponent } from './admin/users/components/user-list/se
     ProductResultComponent,
     UserListComponent,
     UserFormComponent,
-    SearchUserInlineComponent
+    SearchUserInlineComponent,
+    SearchUserFormComponent,
+    SearchUserResultComponent
   ],
   imports: [
     BrowserModule,

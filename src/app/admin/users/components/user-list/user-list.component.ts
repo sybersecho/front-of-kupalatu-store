@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  onAddUser() {
+    // TODO find best way to hide the button
+    // this.btnAddProduct.nativeElement.hidden = true;
+    this.router.navigate(['new'], {relativeTo: this.activatedRoute});
   }
 
 }
