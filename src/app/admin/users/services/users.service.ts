@@ -6,7 +6,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class UsersService {
   private users: User[];
-  // searchUserEvent = new Subject<User[]>();
+  userChanged = new Subject<User[]>();
   // userEditEvent = new Subject<number>();
 
   constructor() {
@@ -16,8 +16,13 @@ export class UsersService {
     ];
   }
 
+  private getAllUsers() {
+    return this.users.slice();
+  }
+
   public searchUser(keyword: string) {
     // this.searchUserEvent.next(this.users.slice());
+    return this.getAllUsers();
   }
 
   public editUser(index: number) {
