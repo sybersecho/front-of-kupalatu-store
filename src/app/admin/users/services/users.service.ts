@@ -7,6 +7,7 @@ import { Subject } from 'rxjs/Subject';
 export class UsersService {
   private users: User[];
   userChanged = new Subject<User[]>();
+  searchUserChanged = new Subject<User[]>();
   // userEditEvent = new Subject<number>();
 
   constructor() {
@@ -21,8 +22,8 @@ export class UsersService {
   }
 
   public searchUser(keyword: string) {
-    // this.searchUserEvent.next(this.users.slice());
-    return this.getAllUsers();
+    this.searchUserChanged.next(this.getAllUsers());
+    // return this.getAllUsers();
   }
 
   public editUser(index: number) {
@@ -41,28 +42,30 @@ export class UsersService {
     const newId = this.users[userLen - 1].id + 1;
     user.id = newId;
     this.users.push(user);
+    this.searchUserChanged.next(this.getAllUsers());
     return true;
   }
 
   updateUser(id: number, newUser) {
-    const index = this.findIndex(id);
+    // const index = this.findIndex(id);
     // u.firstName = newUser.firstName;
-    this.users[index] = newUser;
+    this.users[id] = newUser;
     return true;
   }
 
   delete(id: number) {
-    // console.log();
-    this.users.splice(this.findIndex(id), 1);
-    // this.searchUserEvent.next(this.users.slice());
+    console.log('delete id: ' + id);
+    this.users.splice(id, 1);
+    // this.users.splice(this.findIndex(id), 1);
+    this.searchUserChanged.next(this.getAllUsers());
   }
 
-  private findIndex(id: number) {
-    return this.users.findIndex(
-      (x) => {
-        return x.id == id;
-      }
-    );
-  }
+  // private findIndex(id: number) {
+  //   return this.users.findIndex(
+  //     (x) => {
+  //       return x.id == id;
+  //     }
+  //   );
+  // }
 
 }

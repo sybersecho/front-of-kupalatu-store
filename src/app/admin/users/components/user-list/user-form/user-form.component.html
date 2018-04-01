@@ -6,26 +6,26 @@
       <div class="card-header">
         <h4><div class="card-title">User Information</div></h4>
       </div>
-      <div class="card-body">
-        <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <div class="card-body">
           <div class="form-row">
             <div  class="col-12">
               <div class="form-group row">
                 <label for="txtUsername" class="col-sm-2 col-form-label">Username</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="txtUsername" placeholder="Username">
+                    <input type="text" class="form-control" id="txtUsername" name="txtUsername" #txtUsername="ngModel" [ngModel]="user.username" placeholder="Username">
                   </div>
               </div>
               <div class="form-group row">
                 <label for="txtFirtName" class="col-sm-2 col-form-label">First Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="txtFirtName" placeholder="First Name">
+                    <input type="text" class="form-control" id="txtFirtName" name="txtFirtName" #txtFirtName="ngModel" [ngModel]="user.firstName" placeholder="First Name">
                   </div>
               </div>
               <div class="form-group row">
                 <label for="txtLastName" class="col-sm-2 col-form-label">Last Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="txtLastName" placeholder="Last Name">
+                    <input type="text" class="form-control" id="txtLastName" name="txtLastName" #txtLastName="ngModel" [ngModel]="user.lastName"  placeholder="Last Name">
                   </div>
               </div>
               <div class="form-group row">
@@ -36,20 +36,20 @@
               </div>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="card-footer">
-        <button
-          type="submit"
-          class="btn btn-success float-right">Submit
-            <!-- {{ isEdit ? 'Update' : 'Submit'}} -->
-        </button>
-        <button
-          type="button"
-          class="btn btn-secondary float-left">
-          Clear
-        </button>
-      </div>
+        </div>
+        <div class="card-footer">
+          <button
+            type="submit"
+            class="btn btn-success float-right">Submit
+              <!-- {{ isEdit ? 'Update' : 'Submit'}} -->
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary float-left">
+            Clear
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
